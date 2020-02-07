@@ -1,4 +1,5 @@
 <div class="container">
+  <form [formGroup]="firstFormGroup"  >
   <mat-card>
     <div class="row">
       <p>Are you related by consanguinity or affinity to any of the following :</p>
@@ -9,14 +10,14 @@
     </div>
     <div class="row">
       <div class="col">
-          <mat-radio-group aria-label="Select an option">
+          <mat-radio-group aria-label="Select an option" formControlName="q1" name="q1">
               <mat-radio-button value="Yes">Yes</mat-radio-button>
               <mat-radio-button value="No">No</mat-radio-button>
             </mat-radio-group>
       </div>
       <div class="col">
-          <mat-form-field class="example-full-width">
-              <input matInput placeholder="If yes, give details...">
+          <mat-form-field class="example-full-width" >
+              <input matInput formControlName="q1_yes" name="q1_yes" placeholder="If yes, give details...">
           </mat-form-field>
       </div>
     </div>
@@ -26,14 +27,14 @@
     </div>
       <div class="row">
         <div class="col">
-            <mat-radio-group aria-label="Select an option">
+            <mat-radio-group aria-label="Select an option" formControlName="q2" name="q2">
                 <mat-radio-button value="Yes">Yes</mat-radio-button>
                 <mat-radio-button value="No">No</mat-radio-button>
               </mat-radio-group>
         </div>
         <div class="col">
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="If yes, give details...">
+            <mat-form-field class="example-full-width" >
+                <input matInput formControlName="q2_yes" name="q2_yes" placeholder="If yes, give details...">
             </mat-form-field>
         </div>
       </div>
@@ -42,14 +43,14 @@
         </div>
           <div class="row">
             <div class="col">
-                <mat-radio-group aria-label="Select an option">
+                <mat-radio-group aria-label="Select an option" formControlName="q3" name="q3">
                     <mat-radio-button value="Yes">Yes</mat-radio-button>
                     <mat-radio-button value="No">No</mat-radio-button>
                   </mat-radio-group>
             </div>
             <div class="col">
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="If yes, give details...">
+                <mat-form-field class="example-full-width" >
+                    <input matInput formControlName="q3_yes" name="q3_yes" placeholder="If yes, give details...">
                 </mat-form-field>
             </div>
           </div>
@@ -58,14 +59,14 @@
             </div>
               <div class="row">
                 <div class="col">
-                    <mat-radio-group aria-label="Select an option">
+                    <mat-radio-group aria-label="Select an option" formControlName="q4" name="q4">
                         <mat-radio-button value="Yes">Yes</mat-radio-button>
                         <mat-radio-button value="No">No</mat-radio-button>
                       </mat-radio-group>
                 </div>
                 <div class="col">
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="If yes, give details...">
+                    <mat-form-field class="example-full-width" >
+                        <input matInput formControlName="q4_yes" name="q4_yes" placeholder="If yes, give details...">
                     </mat-form-field>
                 </div>
               </div>
@@ -74,14 +75,14 @@
                 </div>
                   <div class="row">
                     <div class="col">
-                        <mat-radio-group aria-label="Select an option">
+                        <mat-radio-group aria-label="Select an option" formControlName="q5" name="q5">
                             <mat-radio-button value="Yes">Yes</mat-radio-button>
                             <mat-radio-button value="No">No</mat-radio-button>
                           </mat-radio-group>
                     </div>
                     <div class="col">
-                        <mat-form-field class="example-full-width">
-                            <input matInput placeholder="If yes, give details...">
+                        <mat-form-field class="example-full-width" >
+                            <input matInput formControlName="q5_yes" name="q5_yes" placeholder="If yes, give details...">
                         </mat-form-field>
                     </div>
                   </div>
@@ -93,14 +94,14 @@
 </div>
         <div class="row">
           <div class="col">
-              <mat-radio-group aria-label="Select an option">
+              <mat-radio-group aria-label="Select an option" formControlName="q6" name="q6">
                   <mat-radio-button value="Yes">Yes</mat-radio-button>
                   <mat-radio-button value="No">No</mat-radio-button>
                 </mat-radio-group>
           </div>
           <div class="col">
-              <mat-form-field class="example-full-width">
-                  <input matInput placeholder="If yes, give details...">
+              <mat-form-field class="example-full-width" >
+                  <input matInput formControlName="q6_yes" name="q6_yes" placeholder="If yes, give details...">
               </mat-form-field>
           </div>
         </div>
@@ -110,14 +111,14 @@
         </div>
             <div class="row">
               <div class="col">
-                  <mat-radio-group aria-label="Select an option">
+                  <mat-radio-group aria-label="Select an option" formControlName="q7" name="q7">
                       <mat-radio-button value="Yes">Yes</mat-radio-button>
                       <mat-radio-button value="No">No</mat-radio-button>
                     </mat-radio-group>
               </div>
               <div class="col">
-                  <mat-form-field class="example-full-width">
-                      <input matInput placeholder="If yes, give details...">
+                  <mat-form-field class="example-full-width" >
+                      <input matInput formControlName="q7_yes" name="q7_yes" placeholder="If yes, give details...">
                   </mat-form-field>
               </div>
             </div>
@@ -128,14 +129,14 @@
                 <div class="row">
                   <div class="col">
                       <label id="example-radio-group-label">Are you a member of any indigenous group?</label><br>
-                      <mat-radio-group aria-label="Are you a member of any indigenous group?">
+                      <mat-radio-group aria-label="Are you a member of any indigenous group?" formControlName="q8" name="q8">
                           <mat-radio-button value="Yes">Yes</mat-radio-button>
                           <mat-radio-button value="No">No</mat-radio-button>
                         </mat-radio-group>
                   </div>
                   <div class="col">
-                      <mat-form-field class="example-full-width">
-                          <input matInput placeholder="If yes, give details...">
+                      <mat-form-field class="example-full-width" >
+                          <input matInput formControlName="q8_yes" name="q8_yes" placeholder="If yes, give details...">
                       </mat-form-field>
                   </div>
                 </div>
@@ -144,14 +145,14 @@
                     <div class="row">
                       <div class="col">
                           <label id="example-radio-group-label">Are you differently abled?</label><br>
-                          <mat-radio-group aria-label="Are you differently abled?">
+                          <mat-radio-group aria-label="Are you differently abled?" formControlName="q9" name="q9">
                               <mat-radio-button value="Yes">Yes</mat-radio-button>
                               <mat-radio-button value="No">No</mat-radio-button>
                             </mat-radio-group>
                       </div>
                       <div class="col">
-                          <mat-form-field class="example-full-width">
-                              <input matInput placeholder="If yes, give details...">
+                          <mat-form-field class="example-full-width" >
+                              <input matInput formControlName="q9_yes" name="q9_yes" placeholder="If yes, give details...">
                           </mat-form-field>
                       </div>
                     </div>
@@ -160,23 +161,23 @@
               <div class="row">
                 <div class="col">
                     <label id="example-radio-group-label">Are you a solo parent?</label><br>
-                    <mat-radio-group aria-label="Are you a solo parent?">
+                    <mat-radio-group aria-label="Are you a solo parent?" formControlName="q10" name="q10">
                         <mat-radio-button value="Yes">Yes</mat-radio-button>
                         <mat-radio-button value="No">No</mat-radio-button>
                       </mat-radio-group>
                 </div>
                 <div class="col">
-                    <mat-form-field class="example-full-width">
-                        <input matInput placeholder="If yes, give details...">
+                    <mat-form-field class="example-full-width" >
+                        <input matInput formControlName="q10_yes" name="q10_yes" placeholder="If yes, give details...">
                     </mat-form-field>
                 </div>
               </div>
 
 
   </mat-card>
-
+</form>
   <div>
       <button mat-button matStepperPrevious>Previous</button>
-      <button mat-button matStepperNext >Next</button>
+      <button mat-button matStepperNext (click)="savePage4()" >Next</button>
   </div>
 </div>

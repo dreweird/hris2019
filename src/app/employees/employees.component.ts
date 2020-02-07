@@ -32,6 +32,11 @@ export class EmployeesComponent implements OnInit {
     this.router.navigate(['/details',  id]); 
   }
 
+  editEmployee(item){
+    let id = item.PI_ID;
+    this.router.navigate(['/pds',  id]); 
+  }
+
   applyFilter(filterValue: string) {
     this.Employees.filter = filterValue.trim().toLowerCase();
   }

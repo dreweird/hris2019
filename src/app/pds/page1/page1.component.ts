@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input, OnChanges } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, FormArray} from '@angular/forms';
 
 
@@ -64,7 +64,7 @@ class Education {
   templateUrl: './page1.component.html',
   styleUrls: ['./page1.component.css']
 })
-export class Page1Component implements OnInit {
+export class Page1Component implements OnInit, OnChanges {
 
 
   newEduc: Education;
@@ -78,11 +78,46 @@ export class Page1Component implements OnInit {
   @Output() onSaveChildren = new EventEmitter<any>();
   @Output() onSaveEducation = new EventEmitter<any>();
   @Output() notify: EventEmitter<FormGroup> = new EventEmitter<FormGroup>()
+  @Input() emp: any;
+  @Input() ch: any;
+  @Input() ed: any;
 
+  ngOnChanges () {
+ 
+    if(this.emp != undefined && this.emp != null){
+      console.log(this.ed);
+      this.emp.DoB = new Date(this.emp.DoB).toISOString().substr(0, 10);
+      this.firstFormGroup.patchValue(this.emp);
+      let control = this.firstFormGroup.get('children') as FormArray;
+      control.removeAt(0)
+      let control2 = this.firstFormGroup.get('education') as FormArray;
+      control2.removeAt(0)
+      this.ch.forEach(x => {
+        control.push(this._formBuilder.group({
+          name: x.name,
+          bday: new Date(x.DoB).toISOString().substr(0, 10)
+        }))
+      });
+      this.ed.forEach(x => {
+        console.log(x);
+        control2.push(this._formBuilder.group({
+          level: x.Level,
+          school: x.School_Name,
+          course: x.Degree,
+          yg: x.Year_Grad,
+          hg: x.Highest_GLUE,
+          from: x.IDA_From,
+          to: x.IDA_To,
+          scholarship: x.SAHR
+        }))
+      });
+       
+    
+    }
+  }
 
   savePage1(){
     this.notify.emit(this.firstFormGroup);  
-    this.onSaveEducation.emit(this.educations);
   }
 
   
@@ -110,6 +145,7 @@ export class Page1Component implements OnInit {
   
     this.newEduc = new Education();
     this.newEmployee = new Employee();
+
   }
 
   ngOnInit() {

@@ -2,10 +2,10 @@
   
         <!-- <mat-spinner *ngIf="show"></mat-spinner> -->
     <mat-horizontal-stepper [linear]="isLinear" #stepper>
-            <mat-step [completed]="false" [stepControl]="myFormGroup">
+            <!-- <mat-step [completed]="false" [stepControl]="myFormGroup">
                     <ng-template matStepLabel>Page I</ng-template>
-                    <app-page1 (notify)='onNotify($event)' 
-                    (onSaveEducation)='saveEducation($event)'></app-page1>
+                    <app-page1 (notify)='onNotify($event)'
+                    [emp]="Employees" [ch]="Child" [ed]="Education"></app-page1>
                 </mat-step> 
 
                 <mat-step>
@@ -20,14 +20,15 @@
                     (onSaveSkills)='saveSkills($event)'
                     (onSaveNA)='saveNA($event)'
                     (onSaveMembership)='saveMembership($event)'></app-page3>
-            </mat-step> 
+            </mat-step>  -->
             <mat-step >
                 <ng-template matStepLabel>Page IV</ng-template>
-                <app-page4></app-page4>
+                <app-page4 (onSaveQuestion)='saveQuestion($event)'></app-page4>
         </mat-step> 
                     <mat-step>
                         <ng-template matStepLabel>Done</ng-template>
                         You are now done.
+                        <button mat-button color="primary" (click)="save()">SAVE </button>
                   
                         <div>
                             <button mat-button matStepperPrevious>Back</button>

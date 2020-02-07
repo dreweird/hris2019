@@ -46,7 +46,7 @@ export class DashboardComponent implements OnInit {
   public pieChartSalaryGradeData: SingleDataSet = [];
   public pieChartSalaryGradeLabels: Label[] = [];
 
-  public pieCharStepData: SingleDataSet = [];
+  public pieCharStepData: SingleDataSet =[];
   public pieChartStepLabels: Label[] = [];
   pieChartColors: Array < any > = [{
     backgroundColor:  ["#e84351", "#434a54", "#3ebf9b", "#4d86dc", "#f3af37", "#9B59B6",
@@ -107,18 +107,6 @@ export class DashboardComponent implements OnInit {
     }); 
   }
 
-  getAgeBracket(){
-    this.hrmisService.getAgeBracket().subscribe((data : any)=>{
-      console.log(data);
-      this.barChartAgeData = [
-        {data: [ data.two,data.three,data.four,data.five ], label:"#of Employee"},
-        {data: [ data.ave,data.ave,data.ave,data.ave ], label:"Average Age"}
-      ];
-      console.log(this.barChartAgeData);
-
-    }); 
-  }
-
   getSalaryGrade () {
     this.hrmisService.getSalaryGrade().subscribe((data : any)=>{
       this.pieChartSalaryGradeData = [ data[0].data ];
@@ -133,6 +121,18 @@ export class DashboardComponent implements OnInit {
        this.pieChartStepLabels.push("SI " + data[key].si);
   
       }
+
+    }); 
+  }
+
+    getAgeBracket(){
+    this.hrmisService.getAgeBracket().subscribe((data : any)=>{
+      console.log(data);
+      this.barChartAgeData = [
+        {data: [ data.two,data.three,data.four,data.five ], label:"#of Employee"},
+        {data: [ data.ave,data.ave,data.ave,data.ave ], label:"Average Age", type: "line"}
+      ];
+      console.log(this.barChartAgeData);
 
     }); 
   }

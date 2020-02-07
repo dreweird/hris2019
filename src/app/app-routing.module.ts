@@ -28,6 +28,10 @@ const routes: Routes = [
     component: PdsComponent
   },
   {
+    path: 'pds/:id',
+    component: PdsComponent
+  },
+  {
     path: 'property',
     component: PropertyComponent
   },
